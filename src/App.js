@@ -6,9 +6,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+
+        <button onClick={sayHello}>Improve Your Profile!</button>
+
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -20,6 +20,10 @@ function App() {
       </header>
     </div>
   );
+}
+
+function sayHello() {
+  alert('Insert Link Here When Ready');
 }
 
 export default App;
