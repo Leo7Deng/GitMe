@@ -1,20 +1,39 @@
 import './Link.css';
-
+import { useState } from 'react';
 
 function Link() {
+    const [username, setUsername] = useState('');
+    
+    const handleChange = (event) => {
+        setUsername(event.target.value);
+      };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(username)
+        // Simulate form submission by clearing input fields
+        setUsername('');
+      };
+
+
     return (
         <div>
-            <form action="/url" method="GET" className="Form">
-                <fieldset>
-                <label for="username" className="Label"> Enter your username:</label>
+            <form action="/url" method="GET" className="Form" onSubmit={handleSubmit}>
+          
+                <h3 for="username" > Enter your username:</h3>
                 <br></br>
-                    <input type="text" clasName="Submit"id="username" name="username" minlength="1" maxlength="30" required></input>
+                    <input type="text" className="Submit" id="username" name="username" minlength="1" maxlength="30" value={username}
+                onChange={handleChange} required></input>
+                
                 
                 {/* <button type="submit" className="Submit" >Submit</button>   */}
-                </fieldset>
+ 
             </form>
         </div>
     );
+
+    
+    
 }
 
 export default Link;
