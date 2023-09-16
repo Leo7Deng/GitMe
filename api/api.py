@@ -1,3 +1,4 @@
+from flask import Flask, request, jsonify
 import asyncio
 import aiohttp
 import requests
@@ -5,15 +6,15 @@ import json
 import os
 import openai
 
-username = 'ArhanChaudhary'
-repository = 'NAND'
+app = Flask(__name__)
+
 gh_token = os.environ['GH_TOKEN']
 openai.api_key = os.environ['OPENAI_API_KEY']
-codebase_prompt = os.environ['CODEBASE_PROMPT']
-
-api_url = f'https://api.github.com/repos/{username}/{repository}/contents/'
-
+codebase_prompt = "Summarize the exact purpose and unique features of this GitHub repository, given its JSON representation of all of its files. I want it to be a concise bullet-pointed list in a resume style, so it cannot be wordy or too long. Here is the json: \n\n"
 forbidden_extensions = ('.json', '.svg', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.lock', )
+
+too_long = False
+
 async def fetch_file_content(url, as_json=False):
     if any(url.endswith(ext) for ext in forbidden_extensions) or too_long:
         return None
@@ -35,34 +36,41 @@ async def fetch_file_content(url, as_json=False):
                     return None
                 return response_text
 
-async def list_and_fetch_contents(files):
+async def list_and_fetch_contents(files, contents):
     global too_long
     if too_long:
         return
     if type(files) is list:
-        tasks = [list_and_fetch_contents(item_path) for item_path in files]
+        tasks = [list_and_fetch_contents(item_path, contents) for item_path in files]
         await asyncio.gather(*tasks)
         return
     if files['download_url'] is None:
-        await list_and_fetch_contents(await fetch_file_content(files['url'], True))
+        await list_and_fetch_contents(await fetch_file_content(files['url'], True), contents)
     elif file := await fetch_file_content(files['download_url']):
         contents[files['path']] = file
         if len(str(json.dumps(contents))) + len(codebase_prompt) > 8191:
             too_long = True
             del contents[files['path']]
 
-too_long = False
-contents = {}
-loop = asyncio.get_event_loop()
-initial = requests.get(api_url).json()
-loop.run_until_complete(list_and_fetch_contents(initial))
-repo_contents_json = json.dumps(contents)
+@app.route('/', methods=['GET'])
+def main():
+    username = request.args['username']
+    repository = request.args['repository']
+    api_url = f'https://api.github.com/repos/{username}/{repository}/contents/'
+    contents = {}
+    asyncio.set_event_loop(asyncio.SelectorEventLoop())
+    loop = asyncio.get_event_loop()
+    initial = requests.get(api_url).json()
+    loop.run_until_complete(list_and_fetch_contents(initial, contents))
+    repo_contents_json = json.dumps(contents)
+    response = openai.ChatCompletion.create(
+        model="gpt-4",
+        messages=[
+            {"role": "user", "content": codebase_prompt + str(repo_contents_json)}
+        ],
+    )
+    generated_summary = response['choices'][0]['message']['content']
+    return jsonify({'generated_summary': generated_summary})
 
-response = openai.ChatCompletion.create(
-    model="gpt-4",
-    messages=[
-        {"role": "user", "content": codebase_prompt + str(repo_contents_json)}
-    ],
-)
-generated_summary = response['choices'][0]['message']['content']
-print(generated_summary)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=os.getenv("PORT", default=5000))
