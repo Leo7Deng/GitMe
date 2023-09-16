@@ -1,40 +1,62 @@
 /* Just filler CSS */
-.App {
+body {
+  background-color: rgb(32, 1, 89) !important;
+}
+
+.Form {
+  width: 400px;
+  font-family: Verdana, Geneva, sans-serif;  
+  font-size: 30px; 
+  color: white;               
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+}
+
+.fieldset {
+  border: 0;
+  float: left;
+  width: 60%;
+  position: absolute;
+
+ }
+
+.Label {
+  display: block;
+}
+
+.Submit {
+  float: right;
+  text-align: center;
+  width: 30%;
+ }
+
+
+/* .Form {
+    font-family: Verdana, Geneva, sans-serif;  
+    font-size: 30px; 
+    color: white;               
     text-align: center;
-  }
-  
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
-  .App-link {
-    color: #61dafb;
-  }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+} */
+
+/* .Submit {
+  font-family: Verdana, Geneva, sans-serif;  
+  font-size: 30px; 
+  color: white;               
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  padding: 10px;
+  background-color: rgb(16, 99, 17); 
+  border: 3pt;
+} */

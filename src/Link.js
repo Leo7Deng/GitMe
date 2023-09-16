@@ -1,21 +1,20 @@
-import logo from './logo.svg';
 import './Link.css';
-import { useState } from 'react'
 
-export default function Link() {
-    const [username, setUsername] = useState('');
+
+function Link() {
     return (
-        <>
-        <label>
-            GitHub Username:
-            <input
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-            />
-        </label>
-        {username !== '' &&
-            <p>Your username is {username}.</p>
-        }
-        </>
-  );
+        <div>
+            <form action="/url" method="GET" className="Form">
+                <fieldset>
+                <label for="username" className="Label"> Enter your username:</label>
+                <br></br>
+                    <input type="text" clasName="Submit"id="username" name="username" minlength="1" maxlength="30" required></input>
+                
+                {/* <button type="submit" className="Submit" >Submit</button>   */}
+                </fieldset>
+            </form>
+        </div>
+    );
 }
+
+export default Link;
