@@ -16,7 +16,7 @@ function Link() {
         event.preventDefault();
         console.log(username)
         fetch(
-            'https://gitme.up.railway.app/?username=' + username,
+            'https://gitme-api.up.railway.app/?username=' + username,
             {
                 method: 'GET',
             }
