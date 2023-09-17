@@ -25,7 +25,7 @@ export default function App() {
             Get Started
             </button>
         </div>
-        <div id="first-block" class='blocks'>
+        <div id="first-block" className='blocks'>
           <div id='first-wrapper'>
             <p class='sec-title'>Improve Your GitHub Profile</p>
             <p class='sub-text'> The AI model is a cutting-edge solution designed to enhance GitHub profiles by conducting
@@ -76,7 +76,6 @@ export default function App() {
             Get Started
             </button>
         </div>
-      </body>
     </div>
   );
 }
