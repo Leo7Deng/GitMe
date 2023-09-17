@@ -1,3 +1,27 @@
-.App * {
+.App-main {
     color: white;
+    white-space: pre-wrap;
+    display: block;
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: roboto;
+    font-size: 20px;
+}
+
+h2 {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px dashed white;
+}
+
+.App-main :not(h2) {
+    text-align: left;
+    margin: 0 10px;
+}
+
+.App-main > :not(h2) {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
 }

@@ -7,15 +7,15 @@ function ResumeReview(){
 
     return(
         <div className="App">
-            <body>
+            <div className="App-main">
                 <h2>Here is a list of your repositories and a resume summary of each one</h2>
                 {state.data.map((item, index) => (
                     <div key={index}>
-                        <h4>{item.repository}</h4>
+                        <h3>{item.repository}</h3>
                         <p>{item.generated_summary}</p>
                     </div>
                 ))}
-            </body>
+            </div>
         </div>
         
     );

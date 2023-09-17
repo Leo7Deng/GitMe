@@ -9,11 +9,6 @@ export default function App() {
   
   return (
     <div className="App">
-      <header>
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"/>
-      </header>
         <div id="intro-block">
             <img src={logo} alt="Logo" className='logo'/>
             <h2 class='head'>An AI improvement application</h2>
