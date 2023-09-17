@@ -11,9 +11,17 @@ function Link() {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(username)
+        fetch(
+            'https://gitme.up.railway.app/?username=' + username,
+            {
+                method: 'GET',
+            }
+        ).then(response => {
+            console.log(response);
+        });
         // Simulate form submission by clearing input fields
         setUsername('');
-      };
+    };
 
 
     return (
@@ -36,4 +44,5 @@ function Link() {
     
 }
 
+export {username};
 export default Link;

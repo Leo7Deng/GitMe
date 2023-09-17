@@ -45,7 +45,13 @@
   
   h2 {
     font-size: 24px;
-    color: white
+    color: white;
+    padding-top:40px;
+    
+  }
+  h4 {
+    color: white;
+    font-size: 18px;
   }
   
   .label{
@@ -69,6 +75,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
+    width: 400px;
+    padding: 20px;
+
   }
 
 
