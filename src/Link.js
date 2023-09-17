@@ -21,7 +21,9 @@ function Link() {
                 method: 'GET',
             }
         ).then(response => {
-            console.log(response);
+            response.json().then(data => {
+                console.log(data);
+            });
         });
         // Simulate form submission by clearing input fields
         setUsername('');
