@@ -23,11 +23,18 @@ function Link() {
         ).then(response => {
             response.json().then(data => {
                 console.log(data);
+                navigate(
+                    "/ResumeLink",
+                    {
+                        state: {
+                            data: data,
+                        }
+                    }
+                );
             });
         });
         // Simulate form submission by clearing input fields
         setUsername('');
-        navigate("/ResumeLink");
     };
 
 

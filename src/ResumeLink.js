@@ -1,24 +1,24 @@
-import { Link } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import './ResumeLink.css';
 //import {username} from './Link.js';
-    
-function ResumeLink({ data }) {
-    if (!data || !data.text) {
-      return <div>No data available</div>;
-    }
-  
-    const htmlContent = data.generated_summary;
+
+function ResumeReview(){
+    const { state } = useLocation();
+
     return(
         <div className="App">
             <body>
                 <h2>Here is a list of your repositories and a resume summary of each one</h2>
-                <div dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
-                <h4>Display improved resume shit here</h4>
+                {state.data.map((item, index) => (
+                    <div key={index}>
+                        <h4>{item.repository}</h4>
+                        <p>{item.generated_summary}</p>
+                    </div>
+                ))}
             </body>
         </div>
         
     );
 }
 
-
-export default ResumeLink;
+export default ResumeReview;
