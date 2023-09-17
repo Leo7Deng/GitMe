@@ -9,8 +9,11 @@
   width: 250px;
   height: 60px;
   font-size:25px;
-  color: white;
+  color: hsl(0, 0%, 8%);
   font-weight: bolder;
+  background-color: white;
+  box-shadow: 0 0 8px -3px white;
+  margin: 0 auto;
 }
 
 button {
@@ -133,7 +136,7 @@ h2 {
 }
 
 #fourth-block {
-  background-color: #161221;
+  background-color: rgb(57 112 232);
 }
 
 .blocks{
