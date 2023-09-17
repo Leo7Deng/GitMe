@@ -4,7 +4,6 @@
     display: block;
     max-width: 1100px;
     margin: 0 auto;
-    font-family: roboto;
     font-size: 20px;
 }
 
@@ -18,6 +17,10 @@
 .App-main :not(h2) {
     text-align: left;
     margin: 0 10px;
+}
+
+.App-main p {
+    font-weight: initial;
 }
 
 .App-main > :not(h2) {

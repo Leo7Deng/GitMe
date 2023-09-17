@@ -23,6 +23,8 @@ div {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 10px;
+  border: 1px dashed white;
+  border-radius: 20px;
 }
 
 .Submit {
@@ -31,4 +33,5 @@ div {
   height: 30px;
   font-size:20.8px;
   font-weight: bolder;
+  margin-bottom: 15px;
  }

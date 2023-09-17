@@ -14,7 +14,7 @@ function Link() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(username)
+        document.getElementById("form").innerHTML += "<br>Submitted, please wait...";
         fetch(
             'https://gitme-api.up.railway.app/?username=' + username,
             {
@@ -41,7 +41,7 @@ function Link() {
     return (
         <div>
             <img src={logo} alt="Logo" />
-            <form action="/url" method="GET" className="Form" onSubmit={handleSubmit}>
+            <form id="form" action="/url" method="GET" className="Form" onSubmit={handleSubmit}>
           
                 <h3 for="username" > Enter your username:</h3>
                 <br></br>

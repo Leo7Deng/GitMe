@@ -11,7 +11,7 @@ export default function App() {
     <div className="App">
         <div id="intro-block">
             <img src={logo} alt="Logo" className='logo'/>
-            <h2 class='head'>An AI improvement application</h2>
+            <h2 class='head'>An AI profile improvement application</h2>
             <button className = "LinkButton"
             onClick={() => {
             navigate("/Link");
@@ -22,8 +22,8 @@ export default function App() {
         <div id="first-block" className='blocks'>
           <div id='first-wrapper'>
             <p class='sec-title'>Improve Your GitHub Profile</p>
-            <p class='sub-text'> The AI model is a cutting-edge solution designed to enhance GitHub profiles by conducting
- comprehensive reviews of users' profiles and projects. By analyzing profile read me's, and skills listed, we will provide personalized
+            <p class='sub-text'>Want to show off your GitHub? Our AI model is a cutting-edge solution designed to enhance GitHub profiles by conducting
+ comprehensive reviews of your profiles and projects. By analyzing your readmes and skills, we will provide personalized
   feedback on how to improve your profile.</p>
           </div>
           <img src = 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'
@@ -32,28 +32,27 @@ export default function App() {
         <div id="second-block" class='blocks'>
           <img src='https://cdn.iconscout.com/icon/free/png-512/free-readme-3521667-2945111.png?f=avif&w=512'
           alt='readme icon' id='rmIcon'/>
-          <div class='sec-wrapper'>
+          <div class='sec-wrapper right'>
             <p class='sec-title'>
               Improve Your README Documentation
             </p>
-            <p class='sub-text-right'>This AI model is a game-changer for GitHub users by automatically enhancing README documentation. 
-            Often times overseen and having not much thought put into the README's, we will automatically analyze project documentation
-             and make it easier for developers to better explain their projects. </p>
+            <p class='sub-text'>Our product is a game-changer for the professional environment. By automatically improving upon README documentation, we make it easier for developers to explain their projects.
+            </p>
           </div>
         </div>
         <div id="third-block" class='blocks'>
           <div id='res-block'>
             <p class='sec-title'>Improve Your Resume</p>
-            <p class='sub-text'> Our AI will be able to summarize GitHub repositories and print out a bullet pointed resume
-             description. By conducting in-depth project reviews, it offers valuable suggestion for what can be included on your
-              resume, as well as realizing the flaws in your current resume. By saving time in ensuring that your resume
-               may catch recruiter's eyes, you can focus on more things like coding!
+            <p class='sub-text'> We will summarize GitHub repositories into a bullet pointed resume
+             description. By conducting in-depth project reviews, we offer valuable suggestions and critiques for what can be included on your
+              resume.
             </p>
           </div>
           <img src='https://cdn.iconscout.com/icon/free/png-512/free-resume-39-529571.png?f=avif&w=512'
           alt='resume icon' id='resIcon'/>
         </div>
         <div id="fourth-block" className="blocks">
+            <span id="ready">Ready to enhance your professional profile?</span>
             <button className = "LinkButton"
             onClick={() => {
             navigate("/Link");
