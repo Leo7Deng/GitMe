@@ -4,6 +4,9 @@
   margin: auto;
   font-family: roboto;
 } */
+p {
+  font-weight: bolder;
+}
 
 .LinkButton {
   width: 250px;
@@ -47,6 +50,7 @@ h2 {
   margin-left: 100px;
   margin-bottom: 30px;
   font-family: roboto;
+  font-weight: bolder;
 }
 
 #ghLogo {
@@ -96,6 +100,7 @@ h2 {
   text-align: right;
   font-family: roboto;
   margin-bottom: 30px;
+  font-weight: bolder;
 }
 
 .rm-wrapper{

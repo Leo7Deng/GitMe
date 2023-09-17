@@ -40,7 +40,7 @@ function Link() {
 
     return (
         <div>
-            <img src={logo} alt="Logo" />;
+            <img src={logo} alt="Logo" />
             <form action="/url" method="GET" className="Form" onSubmit={handleSubmit}>
           
                 <h3 for="username" > Enter your username:</h3>
