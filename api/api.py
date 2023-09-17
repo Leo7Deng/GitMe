@@ -46,13 +46,16 @@ async def summarize_repo(username, repository):
             tasks = [list_and_fetch_contents(item_path, contents) for item_path in files]
             await asyncio.gather(*tasks)
             return
-        if files['download_url'] is None:
-            await list_and_fetch_contents(await fetch_file_content(files['url'], True), contents)
-        elif file := await fetch_file_content(files['download_url'], False):
-            contents[files['path']] = file
-            if len(str(json.dumps(contents))) + len(codebase_prompt) > 5000:
-                too_long = True
-                del contents[files['path']]
+        try:
+            if files['download_url'] is None:
+                await list_and_fetch_contents(await fetch_file_content(files['url'], True), contents)
+            elif file := await fetch_file_content(files['download_url'], False):
+                contents[files['path']] = file
+                if len(str(json.dumps(contents))) + len(codebase_prompt) > 5000:
+                    too_long = True
+                    del contents[files['path']]
+        except:
+            pass
 
     async def fetch_file_content(url, as_json):
         if any(url.endswith(ext) for ext in forbidden_extensions) or too_long:
@@ -88,10 +91,12 @@ async def summarize_repo(username, repository):
     initial = requests.get(f'https://api.github.com/repos/{username}/{repository}/contents/', headers=request_headers).json()
     await list_and_fetch_contents(initial, repo_contents)
     if not repo_contents:
-        return
+        return None
     repo_contents_str = json.dumps(repo_contents)
     response = await asyncio.get_event_loop().run_in_executor(None, lambda: openai.ChatCompletion.create(model="gpt-4", messages=[{"role": "user", "content": codebase_prompt + repo_contents_str}]))
     generated_summary = response['choices'][0]['message']['content']
+    if '-' not in generated_summary:
+        return None
     return {"repository": repository, "generated_summary": generated_summary}
 
 @app.route('/', methods=['GET'])
@@ -99,7 +104,9 @@ async def main():
     username = request.args['username']
     repos = requests.get(f'https://api.github.com/users/{username}/repos', headers=request_headers).json()[:10]
     summaries = await asyncio.gather(*[summarize_repo(username, repo['name']) for repo in repos])
-    return jsonify([summary for summary in summaries if summary is not None])
+    response = jsonify([summary for summary in summaries if summary is not None])
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=os.getenv("PORT", default=5000))
