@@ -44,5 +44,5 @@ function Link() {
     
 }
 
-export {username};
+//export {username};
 export default Link;
