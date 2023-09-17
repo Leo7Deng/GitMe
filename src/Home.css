@@ -40,7 +40,7 @@ h2 {
   margin-bottom: 100px;
   text-align: center;
   color: white;
-  font-family: roboto;
+  font-family: system-ui;
 }
 
 .sec-title{
@@ -49,7 +49,7 @@ h2 {
   text-align: center;
   margin-left: 100px;
   margin-bottom: 30px;
-  font-family: roboto;
+  font-family: system-ui;
   font-weight: bolder;
 }
 
@@ -94,14 +94,14 @@ h2 {
   background-color: #352f44
 }
 
-#rm-title{
+/* #rm-title{
   color: white;
   font-size: 48px;
   text-align: right;
   font-family: roboto;
   margin-bottom: 30px;
   font-weight: bolder;
-}
+} */
 
 .rm-wrapper{
   display: flex;
@@ -122,13 +122,14 @@ h2 {
 
 .sub-text{
   color: white;
-  font-size: 20px;
+  font-size: 22px;
   text-align: left;
   margin-left: 100px;
   margin-top: 0px;
   /* max-width: 400px; */
   margin-right: 40%;
-  font-family: roboto;
+  font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+  font-weight: initial;
 }
 
 #third-block {

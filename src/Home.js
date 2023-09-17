@@ -32,8 +32,8 @@ export default function App() {
         <div id="second-block" class='blocks'>
           <img src='https://cdn.iconscout.com/icon/free/png-512/free-readme-3521667-2945111.png?f=avif&w=512'
           alt='readme icon' id='rmIcon'/>
-          <div class='rm-wrapper'>
-            <p id='rm-title'>
+          <div class='sec-wrapper'>
+            <p class='sec-title'>
               Improve Your README Documentation
             </p>
             <p class='sub-text-right'>This AI model is a game-changer for GitHub users by automatically enhancing README documentation. 
