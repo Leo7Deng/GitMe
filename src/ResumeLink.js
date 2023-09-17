@@ -5,7 +5,7 @@ function resumeReview(){
         <div className="App">
             <body>
                 <form className="form"> 
-                    <label for="username">Username: </label>
+                    <label for="username" className="label">Username: </label>
                     <input type="text" id="fname" name="fname"></input>
                 </form>
             </body>

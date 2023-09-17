@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Link from './Link';
-//import ResumeLink from './ResumeLink';
+import ResumeLink from './ResumeLink';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Link />
+    <App />
   </React.StrictMode>
 );
 

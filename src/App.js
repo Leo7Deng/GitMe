@@ -9,13 +9,13 @@ function App() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"/>
         <div id="intro-block">
-            <h1 class='head'>GitMe</h1>
+            <h1 class='head'><b>GitMe</b></h1>
             <h2 class='head'>An AI improvement application</h2>
         </div>
       </header>
       <body>
         <div id="first-block" class='blocks'>
-          <p class='leftText'>Improve Your Profile</p>
+          <p class='leftText'><b>Improve Your Profile</b></p>
           <img src = 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'
           alt = 'GitHub Logo' id='ghLogo'/>
         </div>
