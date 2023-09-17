@@ -1,4 +1,9 @@
 /* Just filler CSS */
+img {
+  height: 50px;
+  padding-top: 30px;
+}
+
 html {
   background-color: rgb(16, 16, 20)
 }

@@ -1,7 +1,11 @@
 import './Link.css';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import logo from './logo.png';
 
 function Link() {
+    const navigate = useNavigate();
+
     const [username, setUsername] = useState('');
     
     const handleChange = (event) => {
@@ -21,11 +25,14 @@ function Link() {
         });
         // Simulate form submission by clearing input fields
         setUsername('');
+        navigate("/ResumeLink");
     };
 
 
     return (
         <div>
+
+            <img src={logo} alt="Logo" />;
             <form action="/url" method="GET" className="Form" onSubmit={handleSubmit}>
           
                 <h3 for="username" > Enter your username:</h3>

@@ -2,6 +2,7 @@
 import './Home.css';
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import logo from './logo.png';
 
 export default function App() {
   const navigate = useNavigate();
@@ -15,9 +16,9 @@ export default function App() {
       </head>
       <body>
         <div id="intro-block">
-          <h1 class='head'>GitMe</h1>
-          <h2 class='head'>An AI improvement application</h2>
-          <button className = "LinkButton"
+            <img src={logo} alt="Logo" className='head'/>
+            <h2 class='head'>An AI improvement application</h2>
+            <button className = "LinkButton"
             onClick={() => {
             navigate("/Link");
             }}>
