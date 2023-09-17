@@ -8,6 +8,10 @@ html {
   background-color: rgb(16, 16, 20)
 }
 
+div {
+  text-align: center;
+}
+
 .Form {
   width: 400px;
   /* font-family: ;  */

@@ -33,7 +33,6 @@ function Link() {
 
     return (
         <div>
-
             <img src={logo} alt="Logo" />;
             <form action="/url" method="GET" className="Form" onSubmit={handleSubmit}>
           

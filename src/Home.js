@@ -14,7 +14,6 @@ export default function App() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"/>
       </header>
-      <body>
         <div id="intro-block">
             <img src={logo} alt="Logo" className='logo'/>
             <h2 class='head'>An AI improvement application</h2>
