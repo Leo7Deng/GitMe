@@ -10,6 +10,22 @@ html{
   margin: auto;
   font-family: roboto;
 } */
+.LinkButton {
+  width: 250px;
+  height: 60px;
+  font-size:25px;
+  color: white;
+  font-weight: bolder;
+}
+
+button {
+  margin:0 auto;
+  display:block;
+  border-radius: 50px;
+  border: none;
+  background-color: hsl(216 88% 53% / 1);
+
+}
 
 h1 {
   font-size: 96px;
@@ -83,6 +99,9 @@ h2 {
   background-color: #2a2438;
 }
 
+#fourth-block {
+  background-color: #161221;
+}
 .blocks{
   height: 400px;
   display: flex;
